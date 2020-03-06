@@ -2,7 +2,7 @@ import json
 import requests
 import time
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
-from constant import CRYPTOCURRENCIES_TO_WATCH, PERCENTAGE_CHANGE_POSITIVE, PERCENTAGE_CHANGE_NEGATIVE, CMC_API_URL, IFTTT_WEBHOOKS_URL
+from constant import CRYPTOCURRENCIES_TO_WATCH, PERCENTAGE_CHANGE_POSITIVE, PERCENTAGE_CHANGE_NEGATIVE, CMC_API_URL, IFTTT_WEBHOOKS_URL, TIME_INTERVAL_IN_MINUTES
 from keys import X_CMC_PRO_API_KEY, IFTT_WEBHOOKS_KEY
 
 
@@ -31,7 +31,7 @@ def main():
                 elif percent_change_1h < PERCENTAGE_CHANGE_NEGATIVE:
                     requests.post(ifttt_webhook_url, {
                         "value1": cc, "value2": "decreased", "value3": price})
-            time.sleep(15 * 60)
+            time.sleep(TIME_INTERVAL_IN_MINUTES * 60)
         except (ConnectionError, Timeout, TooManyRedirects) as e:
             print(e)
 

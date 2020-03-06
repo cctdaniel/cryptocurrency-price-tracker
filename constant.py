@@ -5,3 +5,5 @@ PERCENTAGE_CHANGE_NEGATIVE = -5
 
 CMC_API_URL = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
 IFTTT_WEBHOOKS_URL = 'https://maker.ifttt.com/trigger/test_event/with/key/'
+
+TIME_INTERVAL_IN_MINUTES = 15
